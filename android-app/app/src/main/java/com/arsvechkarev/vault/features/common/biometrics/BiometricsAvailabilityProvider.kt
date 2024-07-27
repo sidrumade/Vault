@@ -11,8 +11,9 @@ interface BiometricsAvailabilityProvider {
 class BiometricsAvailabilityProviderImpl(
   private val context: Context
 ) : BiometricsAvailabilityProvider {
-  
+
   override fun isAvailable(): Boolean {
-    return BiometricManager.from(context).canAuthenticate() == BiometricManager.BIOMETRIC_SUCCESS
+    val biometricManager = BiometricManager.from(context)
+    return biometricManager.canAuthenticate(BiometricManager.Authenticators.BIOMETRIC_STRONG) == BiometricManager.BIOMETRIC_SUCCESS
   }
 }

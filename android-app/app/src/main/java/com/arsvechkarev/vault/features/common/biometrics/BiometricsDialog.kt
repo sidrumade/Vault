@@ -3,11 +3,11 @@ package com.arsvechkarev.vault.features.common.biometrics
 import android.annotation.SuppressLint
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
-import androidx.biometric.BiometricConstants.ERROR_CANCELED
-import androidx.biometric.BiometricConstants.ERROR_LOCKOUT
-import androidx.biometric.BiometricConstants.ERROR_LOCKOUT_PERMANENT
-import androidx.biometric.BiometricConstants.ERROR_NEGATIVE_BUTTON
-import androidx.biometric.BiometricConstants.ERROR_USER_CANCELED
+import androidx.biometric.BiometricPrompt.ERROR_CANCELED
+import androidx.biometric.BiometricPrompt.ERROR_LOCKOUT
+import androidx.biometric.BiometricPrompt.ERROR_LOCKOUT_PERMANENT
+import androidx.biometric.BiometricPrompt.ERROR_NEGATIVE_BUTTON
+import androidx.biometric.BiometricPrompt.ERROR_USER_CANCELED
 import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
 import com.arsvechkarev.vault.R

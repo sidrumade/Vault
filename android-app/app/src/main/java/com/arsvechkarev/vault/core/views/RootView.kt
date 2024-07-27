@@ -5,17 +5,23 @@ import android.view.WindowInsets
 import android.widget.FrameLayout
 import viewdsl.ViewDslConfiguration
 
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
+
 class RootView(context: Context) : FrameLayout(context) {
   
   init {
     fitsSystemWindows = true
   }
-  
-  override fun onApplyWindowInsets(insets: WindowInsets): WindowInsets {
-    ViewDslConfiguration.setStatusBarHeight(insets.systemWindowInsetTop)
-    return super.onApplyWindowInsets(
-      insets.replaceSystemWindowInsets(0, 0, 0,
-        insets.systemWindowInsetBottom)
-    )
-  }
+
+override fun onApplyWindowInsets(insets: WindowInsets): WindowInsets {
+  val insetsCompat = WindowInsetsCompat.toWindowInsetsCompat(insets)
+  val systemWindowInsets = insetsCompat.getInsets(WindowInsetsCompat.Type.systemBars())
+
+  ViewDslConfiguration.setStatusBarHeight(systemWindowInsets.top)
+  updatePadding(bottom = systemWindowInsets.bottom)
+
+  return insets
+}
+
 }
